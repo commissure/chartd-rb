@@ -1,36 +1,31 @@
 class Chartd
-  B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.freeze
+  B62 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.freeze
 
-  def self.encode(values = [])
-    return '' if values.empty?
+  def self.encode(dataset = [], min: nil, max: nil)
+    return '' if dataset.empty?
 
-    encoded = []
-    min = values.min
-    max = values.max
+    min ||= dataset.min
+    max ||= dataset.max
 
-    r = dim(max, min)
+    range = dim(max, min)
+    return B62[0] * dataset.count if range == 0
 
-    if r == 0
-      values.count.times { encoded << B64[0] }
-      return encoded.join('')
-    end
+    enclen = B62.length - 1
+    encoded = dataset.map do |v|
+      index = (enclen * (v - min) / range).to_i
 
-    enclen = B64.length - 1
-
-    values.each do |v|
-      index = (enclen * (v - min) / r).to_i
-
-      if index >= 0 && index < B64.length
-        encoded << B64[index]
-        next
+      if index >= 0 && index < B62.length
+        B62[index]
+      else
+        B62[0]
       end
-
-      encoded << B64[0]
     end
 
-    encoded.join('')
+    encoded.join
   end
 
+  # dim returns the maximum of x-y or 0.
+  # It is used to calculate the range of the dataset.
   def self.dim(x, y)
     return 0 if x < y
 
