@@ -1,13 +1,16 @@
 class Chartd
   B62 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.freeze
 
+  # encode encodes a dataset to a format that chartd.co understands.
+  # It optionally takes min and max values that change the resulting chart.
   def self.encode(dataset = [], min: nil, max: nil)
     return '' if dataset.empty?
 
+    # either use custom min & max values or take them from the dataset
     min ||= dataset.min
     max ||= dataset.max
-
     range = dim(max, min)
+
     return B62[0] * dataset.count if range == 0
 
     enclen = B62.length - 1
