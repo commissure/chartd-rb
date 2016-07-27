@@ -5,7 +5,9 @@ Gem::Specification.new do |s|
   s.description = 'Chartd helps you encode values for use with chartd.co.'
   s.authors     = ['Max Lielje']
   s.email       = 'max@pagespeed.io'
-  s.files       = ['lib/chartd.rb']
+  s.files       = `git ls-files`.split("\n")
+  s.test_files  = `git ls-files -- test/*`.split("\n")
+
   s.homepage    = 'https://github.com/commissure/chartd-rb'
   s.license     = 'MIT'
 
