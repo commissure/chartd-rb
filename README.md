@@ -85,7 +85,9 @@ Chartd::Chart.new(data, ylabels: false)
 ### Image Format
 
 While chartd supports both `.svg` and `.png`, `chartd-rb` currently
-only supports `.png`.
+only supports `.png`. [Issue #2][#2] explains why.
+
+  [#2]: https://github.com/commissure/chartd-rb/issues/2
 
 ### Options
 
