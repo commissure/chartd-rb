@@ -47,17 +47,17 @@ class ChartdTest < Test::Unit::TestCase
       },
     }
 
-    testdata.each do |expected, testdata|
+    testdata.each do |expected, data|
       chart = Chartd::Chart.new(
-        testdata[:dataset],
-        min: testdata[:min],
-        max: testdata[:max]
+        data[:dataset],
+        min: data[:min],
+        max: data[:max]
       )
       assert_equal expected, chart.url
     end
   end
 
-  def test_multiple_datasets
+  def test_normalize_datasets
     assert_equal [[1, 2, 3]], Chartd::Chart.new([1, 2, 3]).dataset
     assert_equal [[2, 3], [3, 4]], Chartd::Chart.new([[2, 3], [3, 4]]).dataset
   end
