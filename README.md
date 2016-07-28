@@ -1,6 +1,7 @@
 # `chartd-rb` – Encode data for chartd.co
 
 [![Build Status](https://travis-ci.org/commissure/chartd-rb.svg?branch=master)](https://travis-ci.org/commissure/chartd-rb)
+[![Gem Version](https://badge.fury.io/rb/chartd.svg)](https://rubygems.org/gems/chartd)
 
 :chart_with_upwards_trend: `chartd-rb` is a Ruby gem for [chartd.co],
 a service from [@stathat], that allows you to creat a chart by encoding
