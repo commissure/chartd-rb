@@ -42,5 +42,10 @@ class ChartdTest < Test::Unit::TestCase
     assert_raise do
       Chartd::Chart.new('foo bar')
     end
+
+    assert_raise do
+      # a maximum of 5 datasets is supported by chartd
+      Chartd::Chart.new([[1], [1], [1], [1], [1], [1]])
+    end
   end
 end

@@ -6,6 +6,7 @@ class Chartd
 
   class Chart
     ERR_BAD_DATASET = 'Dataset has to be an array of Fixnums and/or Floats.'.freeze
+    ERR_TOO_MANY_DATASETS = 'Too many datasets supplied, the maximum is 5.'.freeze
 
     attr_reader :dataset
 
@@ -14,6 +15,7 @@ class Chartd
 
     def initialize(dataset = [], min: nil, max: nil, options: {})
       raise ERR_BAD_DATASET unless dataset.is_a?(Array)
+      raise ERR_TOO_MANY_DATASETS if dataset.count > 5
 
       # Check if dataset is multidimensional and if so, use it as is.
       # Otherwise make it multidimensional.
