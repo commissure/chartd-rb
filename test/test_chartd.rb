@@ -10,15 +10,51 @@ class ChartdTest < Test::Unit::TestCase
   end
 
   def test_chart_multiline
-    expected = 'https://chartd.co/a.svg?w=580&h=180&d0=Am9&d1=8AC'
-    chart = Chartd::Chart.new(
-      [
+    testdata = {
+      'https://chartd.co/a.svg?w=580&h=180&d0=Vu9&d1=QAI' => [
         [1.2, 2.4, 3.1],
-        [0.944, 0.170, 0.201],
-      ]
-    )
+        [0.944, 0.170, 0.601],
+      ],
+      'https://chartd.co/a.svg?w=580&h=180&d0=AeP&d1=9et' => [
+        [1, 3, 2],
+        [5, 3, 4],
+      ],
+    }
 
-    assert_equal expected, chart.url
+    testdata.each do |expected, dataset|
+      chart = Chartd::Chart.new(dataset)
+      assert_equal expected, chart.url
+    end
+  end
+
+  def test_chart_multiline_custom_min_max
+    testdata = {
+      'https://chartd.co/a.svg?w=580&h=180&d0=Skv&d1=OCJ' => {
+        dataset: [
+          [1.2, 2.4, 3.1],
+          [0.944, 0.170, 0.601],
+        ],
+        min: 0,
+        max: 4,
+      },
+      'https://chartd.co/a.svg?w=580&h=180&d0=KeU&d1=yeo' => {
+        dataset: [
+          [1, 3, 2],
+          [5, 3, 4],
+        ],
+        min: 0,
+        max: 6,
+      },
+    }
+
+    testdata.each do |expected, testdata|
+      chart = Chartd::Chart.new(
+        testdata[:dataset],
+        min: testdata[:min],
+        max: testdata[:max]
+      )
+      assert_equal expected, chart.url
+    end
   end
 
   def test_multiple_datasets

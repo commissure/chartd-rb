@@ -25,9 +25,12 @@ class Chartd
         @dataset = [dataset]
       end
 
+      # calculate min and max across the entire dataset but only if they are
+      # not set explicitly.
+      @min = min || dataset.flatten.min
+      @max = max || dataset.flatten.max
+
       @options = default_options.merge(options)
-      @min = min
-      @max = max
     end
 
     def url
