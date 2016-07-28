@@ -13,7 +13,7 @@ class Chartd
     # allow min and max to be changed after instantiating a Chart
     attr_accessor :min, :max
 
-    def initialize(dataset = [], min: nil, max: nil, options: {})
+    def initialize(dataset = [], min: nil, max: nil, ylabels: true, options: {})
       raise ERR_BAD_DATASET unless dataset.is_a?(Array)
       raise ERR_TOO_MANY_DATASETS if dataset.count > 5
 
@@ -30,6 +30,8 @@ class Chartd
       @min = min || dataset.flatten.min
       @max = max || dataset.flatten.max
 
+      @ylabels = ylabels
+
       @options = default_options.merge(options)
     end
 
@@ -41,7 +43,15 @@ class Chartd
         ["d#{i}", Encoder.encode(d, min: @min, max: @max)]
       end
 
-      u.query = URI.encode_www_form(@options.merge(encoded_data.to_h))
+      # set labels for y axis when they’re enabled (which they are by default)
+      if @ylabels
+        @options[:ymin] ||= @min
+        @options[:ymax] ||= @max
+      end
+
+      u.query = URI.encode_www_form(
+        @options.merge(encoded_data.to_h)
+      )
       u.to_s.force_encoding('utf-8')
     end
 
