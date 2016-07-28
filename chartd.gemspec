@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'chartd'
-  s.version     = '0.0.1'
+  s.version     = '1.0.0'
   s.summary     = 'Encode values for chartd.co'
   s.description = 'Chartd helps you encode values for use with chartd.co.'
   s.authors     = ['Max Lielje', 'David Pfahler']
