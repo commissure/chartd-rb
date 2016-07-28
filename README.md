@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/commissure/chartd-rb.svg?branch=master)](https://travis-ci.org/commissure/chartd-rb)
 
 :chart_with_upwards_trend: `chartd-rb` is a Ruby gem for [chartd.co],
-a service from [@stathat], that allows you to creata a chart by encoding
+a service from [@stathat], that allows you to creat a chart by encoding
 a dataset into an URL, like so:
 
   [chartd.co]: https://chartd.co
@@ -112,8 +112,9 @@ example the coloring) a little bit more nicely.
 1. Fork the repository
 2. Create a feature branch: `git checkout -b your-feature`
 3. Add your changes
-4. Push changes: `git push -u origin your-feature`
-5. Submit a pull request
+4. Write tests and check coverage report in `coverage/index.html`
+5. Push changes: `git push -u origin your-feature`
+6. Submit a pull request
 
 
 ## License

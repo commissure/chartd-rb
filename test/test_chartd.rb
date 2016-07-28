@@ -1,3 +1,5 @@
+require_relative 'test_helper'
+
 require 'test/unit'
 require 'chartd'
 
