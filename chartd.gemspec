@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/commissure/chartd-rb'
   s.license     = 'MIT'
 
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'test-unit'
-  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'rake', '~> 11.2'
+  s.add_development_dependency 'test-unit', '~> 3.2'
+  s.add_development_dependency 'simplecov', '~> 0.12'
 end

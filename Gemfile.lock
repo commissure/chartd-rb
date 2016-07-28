@@ -23,9 +23,9 @@ PLATFORMS
 
 DEPENDENCIES
   chartd!
-  rake
-  simplecov
-  test-unit
+  rake (~> 11.2)
+  simplecov (~> 0.12)
+  test-unit (~> 3.2)
 
 BUNDLED WITH
    1.11.2
