@@ -3,7 +3,7 @@ require 'chartd'
 
 class ChartdTest < Test::Unit::TestCase
   def test_chart
-    expected = 'https://chartd.co/a.svg?w=580&h=180&d0=Am9'
+    expected = 'https://chartd.co/a.png?w=580&h=180&d0=Am9'
     chart = Chartd::Chart.new([1.2, 2.4, 3.1])
 
     assert_equal expected, chart.url
@@ -11,11 +11,11 @@ class ChartdTest < Test::Unit::TestCase
 
   def test_chart_multiline
     testdata = {
-      'https://chartd.co/a.svg?w=580&h=180&d0=Vu9&d1=QAI' => [
+      'https://chartd.co/a.png?w=580&h=180&d0=Vu9&d1=QAI' => [
         [1.2, 2.4, 3.1],
         [0.944, 0.170, 0.601],
       ],
-      'https://chartd.co/a.svg?w=580&h=180&d0=AeP&d1=9et' => [
+      'https://chartd.co/a.png?w=580&h=180&d0=AeP&d1=9et' => [
         [1, 3, 2],
         [5, 3, 4],
       ],
@@ -29,7 +29,7 @@ class ChartdTest < Test::Unit::TestCase
 
   def test_chart_multiline_custom_min_max
     testdata = {
-      'https://chartd.co/a.svg?w=580&h=180&d0=Skv&d1=OCJ' => {
+      'https://chartd.co/a.png?w=580&h=180&d0=Skv&d1=OCJ' => {
         dataset: [
           [1.2, 2.4, 3.1],
           [0.944, 0.170, 0.601],
@@ -37,7 +37,7 @@ class ChartdTest < Test::Unit::TestCase
         min: 0,
         max: 4,
       },
-      'https://chartd.co/a.svg?w=580&h=180&d0=KeU&d1=yeo' => {
+      'https://chartd.co/a.png?w=580&h=180&d0=KeU&d1=yeo' => {
         dataset: [
           [1, 3, 2],
           [5, 3, 4],

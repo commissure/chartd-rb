@@ -12,13 +12,13 @@ into an URL, like so:
   [@stathat]: https://github.com/stathat
 
 ```
-https://chartd.co/a.svg?w=580&h=180&d0=SRWfaZHLHEDABKKTUYgpqqvws0138eZfaYtwxxsxyst&ymin=94.48&ymax=103.3
+https://chartd.co/a.png?w=580&h=180&d0=SRWfaZHLHEDABKKTUYgpqqvws0138eZfaYtwxxsxyst&ymin=94.48&ymax=103.3
 ```
 
 The URL can then be used with a simple `<img>` tag and the resulting
 chart looks like this:
 
-<img src="https://chartd.co/a.svg?w=580&h=180&d0=SRWfaZHLHEDABKKTUYgpqqvws0138eZfaYtwxxsxyst&ymin=94.48&ymax=103.3">
+<img src="https://chartd.co/a.png?w=580&h=180&d0=SRWfaZHLHEDABKKTUYgpqqvws0138eZfaYtwxxsxyst&ymin=94.48&ymax=103.3">
 
 ## Usage
 
@@ -29,5 +29,5 @@ data = [1, 2, 3]
 # and create a chart
 chart = Chartd::Chart.new(data)
 
-chart.url # => https://chartd.co/a.svg?d0=Ae9
+chart.url # => https://chartd.co/a.png?d0=Ae9
 ```
