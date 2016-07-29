@@ -19,6 +19,27 @@ chart looks like this:
 
 <img src="https://chartd.co/a.png?w=580&h=180&d0=SRWfaZHLHEDABKKTUYgpqqvws0138eZfaYtwxxsxyst&ymin=94.48&ymax=103.3">
 
+## Installation
+
+
+Add this line to your application’s Gemfile:
+
+```ruby
+gem 'chartd'
+```
+
+And then execute:
+
+```shell
+$ bundle
+```
+
+Or install it yourself as:
+
+```shell
+$ gem install chartd
+```
+
 
 ## Usage
 
