@@ -15,11 +15,11 @@ class Chartd
 
     def initialize(dataset = [], min: nil, max: nil, ylabels: true, options: {})
       raise ERR_BAD_DATASET unless dataset.is_a?(Array)
-      raise ERR_TOO_MANY_DATASETS if dataset.count > 5
 
       # Check if dataset is multidimensional and if so, use it as is.
       # Otherwise make it multidimensional.
       if dataset[0].is_a?(Array)
+        raise ERR_TOO_MANY_DATASETS if dataset.count > 5
         @dataset = dataset
       else
         @dataset = [dataset]

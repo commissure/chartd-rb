@@ -6,7 +6,7 @@ require 'chartd'
 class ChartdTest < Test::Unit::TestCase
   def test_chart
     expected = 'https://chartd.co/a.png?w=580&h=180&ymin=1.2&ymax=3.1&d0=Am9'
-    chart = Chartd::Chart.new([1.2, 2.4, 3.1])
+    chart = Chartd::Chart.new([1.2, 2.4, 3.1, 4.8, 9.1, 2.2, 2.0])
 
     assert_equal expected, chart.url
   end
