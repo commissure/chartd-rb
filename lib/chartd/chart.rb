@@ -2,7 +2,7 @@ require 'chartd/encoder'
 require 'uri'
 
 class Chartd
-  BASE_URL = URI.parse('https://chartd.co/a.png')
+  BASE_URL = URI.parse('https://www.chartd.co/a.png')
 
   class Chart
     ERR_BAD_DATASET = 'Dataset has to be an array of Fixnums and/or Floats.'.freeze
